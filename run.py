@@ -53,6 +53,18 @@ def validate_data(values):
     
     return True #if no errors return True
 
+def update_sales_worksheet(data):
+    """
+    Update sales worksheet, add new row with the list data provided.
+    """
 
-dat = get_sales_data()
+    print("Updating sales worksheet...\n")
+
+    sales_worksheet = SHEET.worksheet("sales") # 'sales' is the value of the work sheet tap on google docs
+    sales_worksheet.append_row(data)
+    print("Sales worksheet updated successfully. \n")
+
+data = get_sales_data()
+sales_data = [int(num) for num in data]
+update_sales_worksheet(sales_data)
 
